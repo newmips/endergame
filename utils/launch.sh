@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#/usr/bin/env bash
 
 # Copyright (C) 2018 The noVNC Authors
 # Licensed under MPL 2.0 or any later version (see LICENSE.txt)
@@ -34,9 +34,9 @@ NAME="$(basename $0)"
 REAL_NAME="$(readlink -f $0)"
 HERE="$(cd "$(dirname "$REAL_NAME")" && pwd)"
 PORT="6080"
-VNC_DEST="localhost:5900"
-CERT=""
-KEY=""
+VNC_DEST="9.0.0.11:5900"
+CERT="/etc/letsencrypt/live/enderocean.eu/fullchain.pem"
+KEY="/etc/letsencrypt/live/enderocean.eu/privkey.pem"
 WEB=""
 proxy_pid=""
 SSLONLY=""
