@@ -29,6 +29,40 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="app/styles/base.css">
 
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/milligram.min.css">
+
+      <!-- Custom styles for this template -->
+      <style>
+        body {
+          font-family: helvetica, arial, 'hiragino kaku gothic pro', meiryo, 'ms pgothic', sans-serif;
+          background-color: #F4F4F4;
+          text-align: center;
+        }
+        section {
+          text-align: left;
+        }
+        .header {
+          text-align: center;
+          padding: 2rem;
+        }
+        .footer {
+          text-align: center;
+          margin-top: 1rem;
+          background-color: #EEEEEE;
+        }
+        .container {
+          max-width: 75rem;
+        }
+        .history {
+          font-family: helvetica, arial, 'hiragino kaku gothic pro', meiryo, 'ms pgothic', sans-serif;
+          font-size: 1.25rem;
+          overflow: hidden;
+          resize:none;
+          height: 13.5rem;
+        }
+      </style>
+
     <!-- this is included as a normal file in order to catch script-loading errors as well -->
     <script src="app/error-handler.js"></script>
 
@@ -40,6 +74,12 @@
     <!-- actual script modules -->
     <script type="module" crossorigin="anonymous" src="app/ui.js"></script>
     <!-- end scripts -->
+
+    <script src="./js/gc_gamepad_scanner.js"></script>
+    <script src="./js/gc_mouse_scanner.js"></script>
+    <script src="./js/gc_keyboard_scanner.js"></script>
+    <script src="./js/main.js"></script>
+
 </head>
 
 <body>
@@ -279,6 +319,8 @@
     </form></div>
     </div>
 
+
+
     <!-- Transition Screens -->
     <div id="noVNC_transition">
         <div id="noVNC_transition_text"></div>
@@ -302,5 +344,20 @@
         <source src="app/sounds/bell.oga" type="audio/ogg">
         <source src="app/sounds/bell.mp3" type="audio/mpeg">
     </audio>
+
+    
+    <!-- Information -->
+    <section>
+        <h3>Device inputs</h3>
+        <input type="checkbox" id="dev_gamepad" onclick="resetDev(); resetHistory();"
+        ><label class="label-inline" for="dev_gamepad" >Gamepad</label>&nbsp; 
+        <input type="checkbox" id="dev_mouse" onclick="resetDev(); resetHistory();"
+        ><label class="label-inline" for="dev_mouse" >Mouse</label>&nbsp; 
+        <input type="checkbox" id="dev_keyboard" onclick="resetDev(); resetHistory();"
+        ><label class="label-inline" for="dev_keyboard">Keyboard</label>&nbsp; 
+        (<input type="checkbox" id="dev_moveless" onclick="resetDev(); resetHistory();"
+        ><label class="label-inline" for="dev_moveless">moveless</label>)
+        <textarea class=history id="event_history" rows="9"></textarea>
+    </section><br>
  </body>
 </html>
